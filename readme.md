@@ -1,4 +1,4 @@
-# 🎓 Curso Apache Airflow - Entorno en GitHub Codespaces
+#  Curso Apache Airflow - Entorno en GitHub Codespaces
 
 Este repositorio contiene el entorno listo para ejecutar **Apache Airflow** en la nube usando **GitHub Codespaces**. No necesitas instalar nada en tu computadora.
 
@@ -6,13 +6,13 @@ Este repositorio contiene el entorno listo para ejecutar **Apache Airflow** en l
 
 ---
 
-## 🚀 ¿Qué es GitHub Codespaces?
+##  ¿Qué es GitHub Codespaces?
 
 GitHub Codespaces es un entorno de desarrollo en la nube. Este repositorio incluye una configuración que levanta Apache Airflow con Docker y te permite acceder a su interfaz web directamente desde el navegador.
 
 ---
 
-## ✅ Requisitos
+##  Requisitos
 
 - Una cuenta de GitHub.
 - Acceso a [GitHub Codespaces](https://github.com/features/codespaces) (gratis hasta 60 horas por mes).
@@ -20,7 +20,7 @@ GitHub Codespaces es un entorno de desarrollo en la nube. Este repositorio inclu
 
 ---
 
-## 🧑‍💻 Cómo usar este entorno (paso a paso)
+##  Cómo usar este entorno (paso a paso)
 
 ### 1. Abrí un Codespace
 
@@ -29,7 +29,7 @@ GitHub Codespaces es un entorno de desarrollo en la nube. Este repositorio inclu
 3. Seleccioná la pestaña **"Codespaces"**.
 4. Hacé clic en **“Create codespace on main”**.
 
-> 🕒 Esperá unos minutos mientras se configura el entorno.
+>  Esperá unos minutos mientras se configura el entorno.
 
 ---
 
@@ -101,7 +101,7 @@ docker compose up
 
 ---
 
-### 🧹 ¿Querés reiniciar todo desde cero?
+###  ¿Querés reiniciar todo desde cero?
 
 Si querés eliminar todos los datos y reiniciar desde cero:
 
@@ -111,7 +111,7 @@ docker compose down --volumes --remove-orphans
 
 ---
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 .
@@ -125,7 +125,7 @@ docker compose down --volumes --remove-orphans
 
 ---
 
-## 🧑‍🏫 ¿Dudas o errores?
+##  ¿Dudas o errores?
 
 1. Verificá que los contenedores estén corriendo:
 
@@ -143,4 +143,4 @@ docker compose logs
 
 ---
 
-¡Listo! Ya estás trabajando con Airflow desde la nube 🚀
+¡Listo! Ya estás trabajando con Airflow desde la nube 
