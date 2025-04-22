@@ -144,3 +144,8 @@ docker compose logs
 ---
 
 ¡Listo! Ya estás trabajando con Airflow desde la nube 
+
+# Nota:
+```bash
+docker-compose restart airflow-scheduler
+```
