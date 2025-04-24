@@ -148,4 +148,10 @@ docker compose logs
 # Nota:
 ```bash
 docker-compose restart airflow-scheduler
+docker-compose logs airflow-worker
+docker-compose exec airflow-webserver airflow dags list
+docker-compose logs airflow-scheduler
+docker-compose exec airflow-webserver airflow dags list-import-errors
+
+
 ```
