@@ -25,7 +25,7 @@ Crear un DAG llamado `download_entity_data` que:
 
 Crear un DAG llamado `dag_exportar_tareas_completadas` que:
 
-1. Use `PostgresHook` para leer todas las tareas con estado `"completed"` desde la tabla `task`.
+1. Leer todas las tareas con estado `"completed"` desde la tabla `task`.
 2. Guarde los resultados en un archivo JSON en la ruta `/tmp/tareas_completadas.json`.
 3. Imprima en los logs la cantidad de tareas exportadas.
 
