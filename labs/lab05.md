@@ -19,6 +19,12 @@ from datetime import datetime
 
 def decide_what_to_run(**context):
     execution_date = context['execution_date']
+
+    print("execution_date:", execution_date)
+    print("weekday():", execution_date.weekday())
+    print("day_of_week:", getattr(execution_date, 'day_of_week', 'N/A'))
+    print("isoweekday():", execution_date.isoweekday())
+
     if execution_date.day_of_week > 4:  # 5 = sábado, 6 = domingo
         return 'special_task'
     else:
@@ -47,6 +53,9 @@ with DAG('branch_based_on_day',
 ## **Ejercicio 2: Subir archivos a FTP o PostgreSQL (`postgres2`)**
 
 ### Concepto:
+
+
+Crear un DAG llamado `upload_launch_data` que:
 
 Usando los datos descargados de los lanzamientos espaciales (como en `lab04`), el DAG elige condicionalmente el destino de salida:
 
@@ -135,7 +144,7 @@ CREATE TABLE IF NOT EXISTS launches (
 ####  `ftp_default` – FTP Local (vía contenedor)
 
 ```bash
-airflow connections add ftp_default \
+docker-compose exec airflow-webserver airflow connections add ftp_default \
     --conn-type ftp \
     --conn-host ftp \
     --conn-login airflow \
@@ -146,7 +155,7 @@ airflow connections add ftp_default \
 ####  `postgres_test` – PostgreSQL en `postgres2`
 
 ```bash
-airflow connections add postgres_test \
+docker-compose exec airflow-webserver airflow connections add postgres_local \
     --conn-type postgres \
     --conn-host postgres2 \
     --conn-login testuser \
@@ -162,8 +171,13 @@ airflow connections add postgres_test \
 You can trigger it from the UI or using the CLI with a parameter override:
 
 ```bash
-airflow dags trigger upload_launch_data \
+docker-compose exec airflow-webserver airflow dags trigger upload_launch_data \
     --conf '{"output_target": "to_db"}'
 ```
 
 This will activate the branch that runs `upload_to_db`.
+
+### 4. notes
+```bash
+docker-compose exec airflow-webserver airflow tasks clear -s 2025-05-01 -e 2025-05-15 branch_based_on_day
+```
