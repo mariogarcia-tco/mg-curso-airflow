@@ -19,6 +19,12 @@ from datetime import datetime
 
 def decide_what_to_run(**context):
     execution_date = context['execution_date']
+
+    print("execution_date:", execution_date)
+    print("weekday():", execution_date.weekday())
+    print("day_of_week:", getattr(execution_date, 'day_of_week', 'N/A'))
+    print("isoweekday():", execution_date.isoweekday())
+
     if execution_date.weekday() > 4:  # 5 = sábado, 6 = domingo
         return 'special_task'
     else:
