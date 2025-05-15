@@ -54,6 +54,9 @@ with DAG('branch_based_on_day',
 
 ### Concepto:
 
+
+Crear un DAG llamado `upload_launch_data` que:
+
 Usando los datos descargados de los lanzamientos espaciales (como en `lab04`), el DAG elige condicionalmente el destino de salida:
 
 * **FTP**: Subir el archivo `launches.json`.
@@ -152,7 +155,7 @@ docker-compose exec airflow-webserver airflow connections add ftp_default \
 ####  `postgres_test` – PostgreSQL en `postgres2`
 
 ```bash
-docker-compose exec airflow-webserver airflow connections add postgres_test \
+docker-compose exec airflow-webserver airflow connections add postgres_local \
     --conn-type postgres \
     --conn-host postgres2 \
     --conn-login testuser \
