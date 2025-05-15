@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS launches (
 ####  `ftp_default` – FTP Local (vía contenedor)
 
 ```bash
-airflow connections add ftp_default \
+docker-compose exec airflow-webserver airflow connections add ftp_default \
     --conn-type ftp \
     --conn-host ftp \
     --conn-login airflow \
@@ -146,7 +146,7 @@ airflow connections add ftp_default \
 ####  `postgres_test` – PostgreSQL en `postgres2`
 
 ```bash
-airflow connections add postgres_test \
+docker-compose exec airflow-webserver airflow connections add postgres_test \
     --conn-type postgres \
     --conn-host postgres2 \
     --conn-login testuser \
@@ -162,8 +162,13 @@ airflow connections add postgres_test \
 You can trigger it from the UI or using the CLI with a parameter override:
 
 ```bash
-airflow dags trigger upload_launch_data \
+docker-compose exec airflow-webserver airflow dags trigger upload_launch_data \
     --conf '{"output_target": "to_db"}'
 ```
 
 This will activate the branch that runs `upload_to_db`.
+
+### 4. notes
+```bash
+docker-compose exec airflow-webserver airflow tasks clear -s 2025-05-01 -e 2025-05-15 branch_based_on_day
+```
